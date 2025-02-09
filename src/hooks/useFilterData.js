@@ -8,16 +8,16 @@ const useFilterData = (data, toShow, from = 0, recordsPerPage) => useMemo(() => 
         const newArray = [];
         // create new array with only required fields
         for (let item of slicedData ) {
-        let newItem = {};
-        Object.keys(toShow).forEach((key) => {
-            newItem[key] = item[key];
-        });
-        if (recordsPerPage > 0) {
-            recordsPerPage -- 
-            newArray.push(newItem);
-        } else {
-            break;
-        }
+            let newItem = {};
+            Object.keys(toShow).forEach((key) => {
+                newItem[key] = item[key];
+            });
+            if (recordsPerPage > 0) {
+                recordsPerPage -- 
+                newArray.push(newItem);
+            } else {
+                break;
+            }
         }
         return newArray;
     }
