@@ -11,7 +11,6 @@ const useFetchData = (url) => {
       const tableData = await response.json();
       setData(tableData);
     } catch (error) {
-      setLoading(false);
       console.error(error);
     } finally {
       setLoading(false);
