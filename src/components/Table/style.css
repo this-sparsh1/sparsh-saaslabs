@@ -1,0 +1,22 @@
+.project-table {
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px #0000001a;
+    max-width: 1200px;
+    width: 90%;
+    font-size: 0.75rem;
+}
+.project-table td, .project-table th {
+    padding: 12px 15px;
+    text-align: center;
+}
+.project-table th {
+    cursor: pointer;
+    background-color: #f7f7f7;
+    color: #666463;
+    border: 1px solid #f7f7f7;
+}
+
+.project-table td {
+    color: #767672;
+    border: 1px solid #f7f7f7;
+}

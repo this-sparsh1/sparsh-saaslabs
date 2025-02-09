@@ -1,0 +1,25 @@
+.table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 90%;
+    font-size: 0.75rem;
+}
+.nav-btn {
+    background-color: #bbbbbb;
+    border-radius: 4px;
+    color: white;
+    border: 1px solid #f7f7f7;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    margin: 10px;
+}
+.nav-btn:disabled {
+    background-color: #f7f7f7;
+    color: #666463;
+    cursor: not-allowed;
+}
