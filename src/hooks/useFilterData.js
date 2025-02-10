@@ -21,6 +21,7 @@ const useFilterData = (data, toShow, from = 0, recordsPerPage) => useMemo(() => 
         }
         return newArray;
     }
+    return [];
   }, [data, from, recordsPerPage, toShow]);
 
   export default useFilterData;
