@@ -16,14 +16,6 @@ const ProjectDetails = () => {
   const totalPages = data && Math.ceil(data.length / recordsPerPage);
   const filteredData = useFilterData(data, HEADER_CONFIG, from, recordsPerPage);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (!filteredData || !isValidArray(filteredData)) {
-    return <h1>No data found</h1>;
-  }
-
   const nextPage = () => {
     setPageNo(pageNo + 1);
   }
@@ -31,15 +23,32 @@ const ProjectDetails = () => {
   const prevPage = () => {
     setPageNo(pageNo - 1);
   }
+
+  const renderTable = () => {
+    if (isLoading) {
+      return <h1>Loading...</h1>;
+    }
+  
+    if (!filteredData || !isValidArray(filteredData)) {
+      return <h1>No data found</h1>;
+    }
+  
+    if (filteredData && isValidArray(filteredData)) {
+      return <>
+        <Table data={filteredData} from={from} toShow={HEADER_CONFIG} totalEntries={data.length} />
+        <div className='button-container'>
+          <button className='nav-btn' onClick={prevPage} disabled={pageNo === 1}>Prev</button>
+          Page { pageNo } of { totalPages }
+          <button className='nav-btn' onClick={nextPage} disabled={pageNo === totalPages}>Next</button>
+        </div>
+      </>
+    }
+  }
+
   return (
     <div className='table-container'>
       <h1>Project Details</h1>
-      {filteredData && <Table data={filteredData} from={from} toShow={HEADER_CONFIG} totalEntries={data.length} />}
-      <div className='button-container'>
-        <button className='nav-btn' onClick={prevPage} disabled={pageNo === 1}>Prev</button>
-        Page { pageNo } of { totalPages }
-        <button className='nav-btn' onClick={nextPage} disabled={pageNo === totalPages}>Next</button>
-      </div>
+      {renderTable()}
     </div>
   );
 };
